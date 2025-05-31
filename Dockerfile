@@ -29,10 +29,10 @@ COPY src ./src
 RUN apt-get update && apt-get install -y maven
 
 # Run the Maven install command
-RUN mvn install
+RUN mvn clean package
 
 # Copy the resulting JAR file (adjust the path accordingly)
-COPY target/*.jar /app/app.jar
+COPY /app/target/*.jar /app/app.jar
 
 #Expose the port that the Spring Boot application listens on
 EXPOSE 8761
