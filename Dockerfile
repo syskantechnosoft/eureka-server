@@ -34,7 +34,8 @@ RUN mvn clean package
 RUN mvn install
 
 # Copy the resulting JAR file (adjust the path accordingly)
-COPY /app/target/*.jar* /app/app.jar
+# COPY /app/target/*.jar* /app/app.jar
+COPY /root/.m2/repository/com/syskan/eurekaserver/0.0.1-SNAPSHOT/*.jar /app/app.jar
 
 #Expose the port that the Spring Boot application listens on
 EXPOSE 8761
